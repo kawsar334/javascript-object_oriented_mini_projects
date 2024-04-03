@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .todo-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .todo-item button {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .todocontainer {
+            width: 500px;
+
+        }
+
+        .todocontainer>input {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="todocontainer" id="todocontainer">
+
+        <h2>Todo List</h2>
+        <input type="text" id="todoInput" class="todo-input" placeholder="Add new todo">
+        <button id="addTodoBtn">Add</button>
+    </div>
+
+    <div id="todoList"></div>
+
+
+  
+    <script src="todo.js"></script>
+</body>
+
+
+</html>
