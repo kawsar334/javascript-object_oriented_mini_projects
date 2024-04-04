@@ -1,15 +1,16 @@
+
 class Todo {
     constructor(text) {
         this.text = text;
     }
+
 }
 
 class TodoList {
     constructor() {
         this.todos = [];
     }
-
-    addTodo() {
+    add() {
         const todoInput = document.getElementById("todoInput");
         const todoText = todoInput.value.trim();
         if (todoText !== "") {
@@ -17,34 +18,41 @@ class TodoList {
             this.todos.push(newTodo);
         }
     }
-
-    displayTodo() {
-        const todoList = document.getElementById('todoList');
-        todoList.innerHTML = ""; // Clear the existing todo list
-
-        // Iterate over todos and create a new div element for each todo item
+    display() {
+        const lists = document.getElementById('todoList');
+        lists.innerHTML = "";
         this.todos.forEach((item, index) => {
-            const todoItem = document.createElement('div');
+            const todoItem = document.createElement("div");
             todoItem.classList.add('todo-item');
-            todoItem.textContent = `${index + 1}. ${item.text}`; // Display index and todo text
-            todoList.appendChild(todoItem);
-        });
-    }
+            todoItem.innerHTML = `<div class="todos"><span class="text" ><b>${index + 1}.</b>${item.text}</span><div class="btncontainer"><span class="edit" onclick="newItem.edit(${index})">Edit</span><span class="del" onclick="newItem.remove(${index})">delete</span></div></div>`;
+            lists.appendChild(todoItem);
 
-    updateTodo() {
-        // You can implement the updateTodo method here
+        })
     }
+    edit(index){
+        const newText = prompt("Enter new text todo", this.todos[index].text);
+        if(newText !== null && newText.trim() !==""){
+            this.todos[index].text = newText.trim();
+            this.display();
 
-    deleteTodo() {
-        // You can implement the deleteTodo method here
+        }
+
+    }
+    remove(index){
+        if(confirm("are you sure want to delete this todo?")){
+            this.todos.splice(index, 1)
+            this.display();
+        }
+
+
     }
 }
 
-const todoListApp = new TodoList();
 
-document.getElementById('addTodoBtn').addEventListener('click', () => {
-    todoListApp.addTodo();
-    todoListApp.displayTodo(); // Call displayTodo after adding a new todo
-});
+const addTodoBtn = document.getElementById("addTodoBtn");
+const newItem = new TodoList();
+addTodoBtn.addEventListener("click", () => {
+    newItem.add();
+    newItem.display();
 
-todoListApp.displayTodo(); // Call displayTodo to initially display todos
+})

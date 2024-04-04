@@ -10,7 +10,7 @@ class Computer {
 
     displayDetails() {
         return `
-            <div>
+            <div class="computer">
                 <h3>${this.brand} ${this.model}</h3>
                 <p><b>Price:</b> $${this.price}</p>
                 <p><b>Specifications:</b></p>
