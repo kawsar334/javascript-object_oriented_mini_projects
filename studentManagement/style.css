@@ -1,0 +1,50 @@
+
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+    
+        .person {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid teal;
+            border-radius: 5px;           
+        }
+        .person>h2{
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+        .header{
+            margin: 10px auto;
+            text-align: center;
+            padding: 10px !important;
+            font-size: 25px;
+            color: teal;
+            width: 400px;
+            border-radius: 10px;
+
+
+        }
+
+        #student-form{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            gap: 10px;
+            justify-content: flex-start;
+            margin: 10px auto;
+        }
+        #student-form >input{
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            border: 1px solid lightgray;
+
+        }
+
+        #student-form>button{
+            padding: 10px;
+            border-radius: 10px;
+            background-color: teal;
+
+        }
